@@ -4,7 +4,7 @@ on:
   push:
   schedule:
 #    - cron: "*/15 * * * *"  # 15分おき（UTC）
-    - cron: "0 22 * * *" # 毎日07:00 JSTに実行
+    - cron: "0 21 * * *" # 毎日06:00～ JSTに実行
 #    - cron: "0 */2 * * *"   # 2時間おき
   workflow_dispatch:
 
