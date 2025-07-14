@@ -8,8 +8,8 @@ def generate_tweet():
     
     api_key = os.getenv("GEMINI_API_KEY")
     # タイムゾーンを日本（JST）の日付文字列を生成
-    jst = pytz.timezone('Asia/Tokyo')
-    now = datetime.datetime.now(jst)
+    jst = timezone(timedelta(hours=9))
+    now = datetime.now(jst)
     date_str = f"{now.month}月{now.day}日"
   
     # ニュース取得
