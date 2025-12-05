@@ -22,7 +22,7 @@ def generate_tweet():
         "税金高いっすね😍（メロメロな挨拶）",
     ]
 
-    greeting = random.choice(descriptions)
+    greeting = random.choice(greetings)
 
     # ニュース取得
     # news = get_google_news_trends()
