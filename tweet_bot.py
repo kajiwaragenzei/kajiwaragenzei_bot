@@ -3,6 +3,7 @@ import requests
 import tweepy
 from datetime import datetime, timezone, timedelta
 import feedparser
+import random
 
 def generate_tweet():
     
@@ -11,7 +12,18 @@ def generate_tweet():
     jst = timezone(timedelta(hours=9))
     now = datetime.now(jst)
     date_str = f"{now.month}月{now.day}日"
-  
+    greetings = [
+        "税金高いっすね☆（気軽な挨拶）",
+        "税金高いっすね🙋‍♂️（気さくな挨拶）",
+        "税金高いっすね😎（ナウい挨拶）",
+        "税金高いっすね😢（切ない挨拶）",
+        "税金高いっすね🎊（めでたい挨拶）",
+        "税金高いっすね🇯🇵（日本伝統の挨拶）",
+        "税金高いっすね😍（メロメロな挨拶）",
+    ]
+
+    greeting = random.choice(descriptions)
+
     # ニュース取得
     # news = get_google_news_trends()
     # news_prompt_text = format_news_for_prompt(news)
@@ -21,9 +33,9 @@ def generate_tweet():
         あなたはXの投稿文を生成するAIです。
         以下の指示に従い、投稿文を140字以内で生成してください。
 
-        1. **投稿の冒頭:** "税金高いっすね🙋‍♂️" を入れてください。
-        2. **本文:** 本日の日付"{date_str}"が持つ何らかの意味（例: 誰かの誕生日、歴史上の出来事など）を軽く触れつつ、社会保障削減と減税の必要性または問題提起を短く含めてください。
-        3. **投稿の最後:** "減税しなければ政治家ではない！（AI自動化投稿）" を入れてください。
+        1. **投稿の冒頭:** "{greeting}" を入れてください。
+        2. **本文:** 本日の日付"{date_str}"が持つ何らかの意味（例: 誰かの誕生日、歴史上の出来事など）を短く紹介。
+        3. **投稿の最後:** "今日も減税と社会保障費削減を進めましょう。ゲン税で日本をゲン気に！（AI自動化投稿）" を入れてください。
         4. **文字数:** 全体で140字以内であることを厳守してください。
         5. **出力:** 生成された投稿文のみを出力してください。
     """
